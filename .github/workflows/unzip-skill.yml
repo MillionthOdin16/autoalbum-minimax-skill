@@ -1,0 +1,66 @@
+name: Unzip AutoAlbum skill package
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'autoalbum-minimax-v24-production-test-ready.zip'
+      - '.github/workflows/unzip-skill.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  unzip-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Unzip package into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="autoalbum-minimax-v24-production-test-ready.zip"
+          WORKDIR="_autoalbum_unzip_work"
+
+          if [ ! -f "$ZIP" ]; then
+            echo "Package not found: $ZIP" >&2
+            exit 1
+          fi
+
+          rm -rf "$WORKDIR"
+          mkdir -p "$WORKDIR"
+          unzip -q "$ZIP" -d "$WORKDIR"
+
+          SRC="$(find "$WORKDIR" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+          if [ -z "$SRC" ]; then
+            echo "No top-level directory found inside zip" >&2
+            exit 1
+          fi
+
+          # Copy package contents into the repo root while preserving the uploaded zip and workflow.
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='autoalbum-minimax-v24-production-test-ready.zip' \
+            "$SRC"/ ./
+
+          rm -rf "$WORKDIR"
+
+      - name: Commit extracted files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Extract AutoAlbum MiniMax v24 skill"
+            git push
+          fi
