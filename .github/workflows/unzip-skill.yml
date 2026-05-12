@@ -64,3 +64,5 @@ jobs:
             git commit -m "Extract AutoAlbum MiniMax v24 skill"
             git push
           fi
+
+# trigger: 2026-05-11
