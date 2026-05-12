@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Candidate Tournament",
+  "type": "object",
+  "required": ["tournament_id", "candidate_type", "candidates", "ranked_results", "next_action"],
+  "properties": {
+    "tournament_id": {"type": "string"},
+    "candidate_type": {"enum": ["concept", "voice_trial", "hook", "lyrics", "prompt", "packet", "render", "sequence", "style"]},
+    "candidates": {"type": "array", "items": {"type": "object"}},
+    "matches": {"type": "array", "items": {"type": "object"}},
+    "ranked_results": {"type": "array", "items": {"type": "object"}},
+    "selected_candidate": {"type": ["string", "null"]},
+    "no_winner_reason": {"type": ["string", "null"]},
+    "next_action": {"enum": ["SELECT", "GENERATE_MORE", "REVISE_TOP_TWO", "ESCALATE"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Concept Tournament",
+  "type": "object",
+  "required": ["tournament_id", "scope", "candidates", "ranked_results", "selected_candidate", "decision"],
+  "properties": {
+    "tournament_id": {"type": "string"},
+    "scope": {"type": "string"},
+    "candidates": {"type": "array", "minItems": 5, "items": {"type": "object"}},
+    "ranked_results": {"type": "array", "items": {"type": "object"}},
+    "selected_candidate": {"type": "string"},
+    "decision": {"enum": ["SELECT", "GENERATE_MORE", "REVISE_TOP_CANDIDATE", "ESCALATE"]},
+    "rationale": {"type": "string"}
+  },
+  "additionalProperties": true
+}

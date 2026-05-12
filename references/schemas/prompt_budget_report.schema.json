@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MiniMax Prompt Budget Report v23",
+  "type": "object",
+  "required": [
+    "track_number",
+    "provider_profile",
+    "char_count_before",
+    "char_count_after",
+    "within_provider_limit",
+    "ideal_range_status",
+    "prompt_control_score",
+    "compression_action",
+    "blocking_issues",
+    "approved",
+    "prompt_limit_chars",
+    "lyrics_limit_chars",
+    "prompt_char_count",
+    "lyrics_char_count",
+    "mode_specific_limits_used"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "provider_profile": {
+      "type": "string"
+    },
+    "char_count_before": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "char_count_after": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "within_provider_limit": {
+      "type": "boolean"
+    },
+    "ideal_range_status": {
+      "enum": [
+        "too_short",
+        "ideal",
+        "upper_range",
+        "red_zone",
+        "over_limit"
+      ]
+    },
+    "prompt_control_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "contains_required_controls": {
+      "type": "object",
+      "properties": {
+        "style_lane": {
+          "type": "boolean"
+        },
+        "vocal_delivery": {
+          "type": "boolean"
+        },
+        "groove_drums_bass": {
+          "type": "boolean"
+        },
+        "hook_mechanics": {
+          "type": "boolean"
+        },
+        "arrangement_tension": {
+          "type": "boolean"
+        },
+        "mix_texture": {
+          "type": "boolean"
+        },
+        "album_role": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "compression_action": {
+      "enum": [
+        "none",
+        "compressed",
+        "expanded",
+        "rewrite_required"
+      ]
+    },
+    "removed_or_compressed_elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "evaluated_artifact_path": {
+      "type": "string"
+    },
+    "evaluated_artifact_hash": {
+      "type": "string"
+    },
+    "prompt_limit_chars": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lyrics_limit_chars": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "prompt_char_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lyrics_char_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mode_specific_limits_used": {
+      "type": "boolean"
+    }
+  }
+}

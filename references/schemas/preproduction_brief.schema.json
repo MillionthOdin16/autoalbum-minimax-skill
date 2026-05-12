@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrackPreproductionBrief",
+  "type": "object",
+  "required": ["track_number", "song_identity", "album_role", "hook_contract", "style_fingerprint_controls", "vocal_delivery", "groove_drum_bass_plan", "arrangement_tension_plan", "prompt_priorities", "minimax_failure_modes"],
+  "properties": {
+    "track_number": {"type": "integer"},
+    "song_identity": {"type": "string"},
+    "album_role": {"type": "string"},
+    "hook_contract": {"type": "string"},
+    "style_fingerprint_controls": {"type": "array", "items": {"type": "string"}},
+    "vocal_delivery": {"type": "string"},
+    "groove_drum_bass_plan": {"type": "string"},
+    "harmony_melody_topline_plan": {"type": "string"},
+    "arrangement_tension_plan": {"type": "string"},
+    "production_mix_space_plan": {"type": "string"},
+    "prompt_priorities": {"type": "array", "items": {"type": "string"}},
+    "prompt_omissions": {"type": "array", "items": {"type": "string"}},
+    "minimax_failure_modes": {"type": "array", "items": {"type": "string"}},
+    "ready_for_prompt_compilation": {"type": "boolean"}
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PromptLintReport",
+  "type": "object",
+  "required": [
+    "track_number",
+    "prompt_path",
+    "prompt_hash",
+    "provider_profile",
+    "blocking_issues",
+    "warnings",
+    "approved",
+    "evaluated_artifact_path",
+    "evaluated_artifact_hash"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "prompt_path": {
+      "type": "string"
+    },
+    "prompt_hash": {
+      "type": "string"
+    },
+    "provider_profile": {
+      "type": "string"
+    },
+    "prompt_char_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lyrics_char_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "evaluated_artifact_path": {
+      "type": "string"
+    },
+    "evaluated_artifact_hash": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

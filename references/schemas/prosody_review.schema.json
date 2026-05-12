@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Prosody Review",
+  "type": "object",
+  "required": [
+    "track_number",
+    "prosody_score",
+    "hook_singability_score",
+    "section_contrast_score",
+    "breath_feasibility_score",
+    "style_delivery_fit",
+    "ready_for_packet_compilation",
+    "blocking_issues",
+    "recommended_fixes"
+  ],
+  "properties": {
+    "track_number": {"type": "integer", "minimum": 1},
+    "title": {"type": "string"},
+    "primary_hook_phrase": {"type": "string"},
+    "prosody_score": {"type": "number", "minimum": 0, "maximum": 10},
+    "hook_singability_score": {"type": "number", "minimum": 0, "maximum": 10},
+    "section_contrast_score": {"type": "number", "minimum": 0, "maximum": 10},
+    "breath_feasibility_score": {"type": "number", "minimum": 0, "maximum": 10},
+    "style_delivery_fit": {"type": "number", "minimum": 0, "maximum": 10},
+    "syllable_density_notes": {"type": "string"},
+    "stress_alignment_notes": {"type": "string"},
+    "vowel_and_consonant_notes": {"type": "string"},
+    "cadence_and_rhyme_notes": {"type": "string"},
+    "section_notes": {"type": "object", "additionalProperties": {"type": "string"}},
+    "blocking_issues": {"type": "array", "items": {"type": "string"}},
+    "recommended_fixes": {"type": "array", "items": {"type": "string"}},
+    "ready_for_packet_compilation": {"type": "boolean"}
+  }
+}

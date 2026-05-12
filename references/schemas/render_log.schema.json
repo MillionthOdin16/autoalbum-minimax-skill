@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum MiniMax Render Log Entry",
+  "type": "object",
+  "required": [
+    "render_id",
+    "track_number",
+    "timestamp_utc",
+    "provider",
+    "model",
+    "packet_path",
+    "payload_path",
+    "response_path",
+    "audio_path",
+    "selected"
+  ],
+  "properties": {
+    "render_id": {
+      "type": "string"
+    },
+    "track_number": {
+      "type": "integer"
+    },
+    "variant": {
+      "type": "string"
+    },
+    "take": {
+      "type": "integer"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "packet_path": {
+      "type": "string"
+    },
+    "payload_path": {
+      "type": "string"
+    },
+    "response_path": {
+      "type": "string"
+    },
+    "prompt_hash": {
+      "type": "string"
+    },
+    "lyrics_hash": {
+      "type": "string"
+    },
+    "audio_path": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "base_status_code": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "base_status_msg": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer"
+    },
+    "sample_rate": {
+      "type": "integer"
+    },
+    "channels": {
+      "type": "integer"
+    },
+    "bitrate": {
+      "type": "integer"
+    },
+    "size_bytes": {
+      "type": "integer"
+    },
+    "selected": {
+      "type": "boolean"
+    },
+    "review_path": {
+      "type": "string"
+    },
+    "failure": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

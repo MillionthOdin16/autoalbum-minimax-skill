@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArrangementEnergyReview",
+  "type": "object",
+  "required": ["track_number", "section_energy_map", "scores", "blockers", "pass"],
+  "properties": {
+    "track_number": {"type": "integer"},
+    "section_energy_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["section", "energy", "function"],
+        "properties": {
+          "section": {"type": "string"},
+          "energy": {"type": "number"},
+          "function": {"type": "string"},
+          "tension_or_release": {"type": "string"}
+        }
+      }
+    },
+    "tension_mechanism": {"type": "string"},
+    "release_mechanism": {"type": "string"},
+    "bridge_or_break_purpose": {"type": "string"},
+    "adjacent_track_contrast": {"type": "string"},
+    "scores": {
+      "type": "object",
+      "required": ["hook_entrance_strategy", "arrangement_contrast", "style_form_fit", "minimax_structure_fit"],
+      "properties": {
+        "hook_entrance_strategy": {"type": "number"},
+        "arrangement_contrast": {"type": "number"},
+        "style_form_fit": {"type": "number"},
+        "minimax_structure_fit": {"type": "number"}
+      }
+    },
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "pass": {"type": "boolean"}
+  }
+}

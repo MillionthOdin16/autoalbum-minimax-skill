@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Release Metadata v9",
+  "type": "object",
+  "required": [
+    "project_name",
+    "release_type",
+    "tracks",
+    "provenance"
+  ],
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "artist_name": {
+      "type": "string"
+    },
+    "album_title": {
+      "type": "string"
+    },
+    "release_type": {
+      "enum": [
+        "single",
+        "EP",
+        "mixtape",
+        "album",
+        "concept_album",
+        "beat_tape",
+        "instrumental_score"
+      ]
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "track_number",
+          "title"
+        ],
+        "properties": {
+          "track_number": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "duration_ms": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "selected_render_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "audio_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lyrics_path": {
+            "type": "string"
+          },
+          "prompt_path": {
+            "type": "string"
+          },
+          "generation_packet_path": {
+            "type": "string"
+          },
+          "credits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "credits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cover_direction_path": {
+      "type": "string"
+    },
+    "final_aandr_review_path": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

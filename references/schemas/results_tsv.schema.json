@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Results TSV Logical Schema v10",
+  "type": "object",
+  "required": [
+    "columns"
+  ],
+  "properties": {
+    "columns": {
+      "const": [
+        "timestamp",
+        "stage",
+        "track_number",
+        "artifact_id",
+        "variant_id",
+        "score_type",
+        "score",
+        "status",
+        "decision",
+        "path",
+        "notes"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

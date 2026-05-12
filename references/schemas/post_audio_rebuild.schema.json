@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PostAudioRebuild",
+  "type": "object",
+  "required": [
+    "tracks_reviewed",
+    "sequence_decision",
+    "recommended_changes",
+    "canon_updates",
+    "propagation_debts"
+  ],
+  "properties": {
+    "tracks_reviewed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "track_number",
+          "selected_render_id",
+          "actual_role",
+          "plan_match_score"
+        ],
+        "properties": {
+          "track_number": {
+            "type": "integer"
+          },
+          "selected_render_id": {
+            "type": "string"
+          },
+          "actual_role": {
+            "type": "string"
+          },
+          "plan_match_score": {
+            "type": "number"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sequence_decision": {
+      "enum": [
+        "KEEP_SEQUENCE",
+        "REORDER",
+        "CUT_OR_REPLACE_TRACKS",
+        "ADD_CONNECTIVE_MATERIAL",
+        "ESCALATE"
+      ]
+    },
+    "recommended_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canon_updates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "propagation_debts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

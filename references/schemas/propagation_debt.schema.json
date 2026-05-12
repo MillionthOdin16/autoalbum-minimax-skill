@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PropagationDebt",
+  "type": "object",
+  "required": [
+    "debt_id",
+    "created_at",
+    "source_change",
+    "source_artifact",
+    "affected_artifacts",
+    "severity",
+    "required_action",
+    "status"
+  ],
+  "properties": {
+    "debt_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "source_change": {
+      "type": "string"
+    },
+    "source_artifact": {
+      "type": "string"
+    },
+    "affected_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "severity": {
+      "enum": [
+        "critical",
+        "major",
+        "minor"
+      ]
+    },
+    "required_action": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "open",
+        "in_progress",
+        "resolved",
+        "accepted"
+      ]
+    },
+    "resolution_notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

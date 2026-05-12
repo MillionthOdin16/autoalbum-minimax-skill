@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdversarialSongEdit",
+  "type": "object",
+  "required": [
+    "track_number",
+    "overall_decision",
+    "findings",
+    "critical_count",
+    "major_count"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer"
+    },
+    "overall_decision": {
+      "enum": [
+        "PASS",
+        "REVISE_REQUIRED",
+        "PASS_WITH_JUSTIFIED_DEBTS",
+        "ESCALATE"
+      ]
+    },
+    "critical_count": {
+      "type": "integer"
+    },
+    "major_count": {
+      "type": "integer"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "finding_id",
+          "target_artifact",
+          "category",
+          "severity",
+          "issue",
+          "why_it_hurts",
+          "proposed_patch"
+        ],
+        "properties": {
+          "finding_id": {
+            "type": "string"
+          },
+          "target_artifact": {
+            "type": "string"
+          },
+          "target_excerpt": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "critical",
+              "major",
+              "minor",
+              "watch"
+            ]
+          },
+          "issue": {
+            "type": "string"
+          },
+          "why_it_hurts": {
+            "type": "string"
+          },
+          "proposed_patch": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "protected_elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

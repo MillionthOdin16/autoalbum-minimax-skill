@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListenerPanel",
+  "type": "object",
+  "required": [
+    "scope",
+    "personas",
+    "decision",
+    "findings",
+    "recommended_action"
+  ],
+  "properties": {
+    "scope": {
+      "enum": [
+        "track_pre_render",
+        "track_post_render",
+        "album_pre_render",
+        "album_post_render"
+      ]
+    },
+    "track_number": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "personas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "persona",
+          "assessment",
+          "score",
+          "key_concern"
+        ],
+        "properties": {
+          "persona": {
+            "type": "string"
+          },
+          "assessment": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "key_concern": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "decision": {
+      "enum": [
+        "KEEP",
+        "KEEP_WITH_MINOR_FIX",
+        "REGENERATE_SAME_PACKET",
+        "REVISE_PROMPT_AND_REGENERATE",
+        "REVISE_LYRICS_AND_REGENERATE",
+        "CUT_OR_REPLACE",
+        "ESCALATE"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_action": {
+      "type": "string"
+    },
+    "timestamps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

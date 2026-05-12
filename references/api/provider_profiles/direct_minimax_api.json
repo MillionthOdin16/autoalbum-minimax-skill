@@ -1,0 +1,155 @@
+{
+  "provider_id": "direct_minimax_api",
+  "models": [
+    "music-2.6",
+    "music-2.6-free",
+    "music-cover",
+    "music-cover-free"
+  ],
+  "default_model": "music-2.6",
+  "prompt": {
+    "autoalbum_required_for_quality": true,
+    "api_rules": {
+      "music-2.6_non_instrumental": {
+        "api_required": false,
+        "min_chars": 0,
+        "max_chars": 2000
+      },
+      "music-2.6_instrumental": {
+        "api_required": true,
+        "min_chars": 1,
+        "max_chars": 2000
+      },
+      "music-cover": {
+        "api_required": true,
+        "min_chars": 10,
+        "max_chars": 300
+      }
+    },
+    "language_preference": "English",
+    "ideal_chars": [
+      650,
+      1400
+    ]
+  },
+  "lyrics": {
+    "music-2.6_non_instrumental": {
+      "required": true,
+      "min_chars": 1,
+      "max_chars": 3500
+    },
+    "music-2.6_instrumental": {
+      "required": false
+    },
+    "music-cover_one_step": {
+      "required": false,
+      "min_chars": 10,
+      "max_chars": 1000,
+      "asr_extract_if_omitted": true
+    },
+    "music-cover_with_cover_feature_id": {
+      "required": true,
+      "min_chars": 10,
+      "max_chars": 1000
+    },
+    "supports_optimizer": true
+  },
+  "instrumental": {
+    "field": "is_instrumental",
+    "lyrics_required": false
+  },
+  "stream": {
+    "supported": true,
+    "notes": "When stream is true, output_format must be hex for direct API."
+  },
+  "output_format": {
+    "supported_values": [
+      "url",
+      "hex"
+    ],
+    "api_default": "hex",
+    "autoalbum_default": "url",
+    "url_expiration_hours": 24,
+    "stream_true_requires": "hex"
+  },
+  "audio_setting": {
+    "sample_rates": [
+      16000,
+      24000,
+      32000,
+      44100
+    ],
+    "bitrates": [
+      32000,
+      64000,
+      128000,
+      256000
+    ],
+    "formats": [
+      "mp3",
+      "wav",
+      "pcm"
+    ],
+    "recommended_final": {
+      "sample_rate": 44100,
+      "bitrate": 256000,
+      "format": "wav"
+    },
+    "recommended_preview": {
+      "sample_rate": 44100,
+      "bitrate": 128000,
+      "format": "mp3"
+    }
+  },
+  "structure_tags_direct_api": [
+    "Intro",
+    "Verse",
+    "Pre Chorus",
+    "Chorus",
+    "Interlude",
+    "Bridge",
+    "Outro",
+    "Post Chorus",
+    "Transition",
+    "Break",
+    "Hook",
+    "Build Up",
+    "Inst",
+    "Solo"
+  ],
+  "cover_mode": {
+    "supported": true,
+    "inputs": [
+      "audio_url",
+      "audio_base64",
+      "cover_feature_id"
+    ],
+    "source_audio_seconds": [
+      6,
+      360
+    ],
+    "source_audio_max_mb": 50,
+    "cover_feature_id_ttl_hours": 24,
+    "prompt_chars": [
+      10,
+      300
+    ]
+  },
+  "metadata_to_log": [
+    "trace_id",
+    "status",
+    "extra_info.music_duration",
+    "extra_info.music_sample_rate",
+    "extra_info.music_channel",
+    "extra_info.bitrate",
+    "extra_info.music_size"
+  ],
+  "album_quality_notes": [
+    "Use model music-2.6 for serious candidates",
+    "Use free model only for scratch exploration",
+    "Download URL outputs immediately",
+    "Keep exact payload and response for every render"
+  ],
+  "last_verified": "2026-05-11",
+  "source_of_truth": "MiniMax direct Music Generation API docs"
+}

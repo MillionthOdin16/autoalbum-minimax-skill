@@ -1,0 +1,156 @@
+{
+  "version": "23.0-verification-hardened",
+  "description": "Machine-readable canonical AutoAlbum phase order with verification hardening. Phase IDs drive gate checks, freshness checks, route display, and completion enforcement.",
+  "phases": [
+    {
+      "id": "intake",
+      "label": "0 \u2014 Intent and project setup",
+      "stage_doc": "references/delegated/28_user_intent_intake.md"
+    },
+    {
+      "id": "concept_option_search",
+      "label": "0A \u2014 Concept option search",
+      "stage_doc": "references/delegated/48_album_seed_and_concept_tournament.md"
+    },
+    {
+      "id": "style_resolution",
+      "label": "0B \u2014 Style resolution",
+      "stage_doc": "references/delegated/16_select_style_from_catalog.md"
+    },
+    {
+      "id": "style_voice_trials",
+      "label": "1A \u2014 Style/voice fingerprint trials",
+      "stage_doc": "references/delegated/49_style_voice_fingerprint_trials.md"
+    },
+    {
+      "id": "foundation",
+      "label": "1 \u2014 Foundation",
+      "stage_doc": "references/delegated/01_foundation.md"
+    },
+    {
+      "id": "canon_setup",
+      "label": "1B \u2014 Album canon and propagation setup",
+      "stage_doc": "references/delegated/41_build_album_canon.md"
+    },
+    {
+      "id": "planning_style_cards",
+      "label": "2 \u2014 Tracklist, album arc, and style cards",
+      "stage_doc": "references/delegated/02_tracklist_and_arc.md"
+    },
+    {
+      "id": "motif_plant_payoff",
+      "label": "2C \u2014 Motif plant/payoff ledger",
+      "stage_doc": "references/delegated/51_motif_plant_payoff_ledger.md"
+    },
+    {
+      "id": "hook_title_tournament",
+      "label": "2D \u2014 Hook/title tournament",
+      "stage_doc": "references/delegated/50_hook_title_tournament.md"
+    },
+    {
+      "id": "arrangement_energy_design",
+      "label": "2B \u2014 Hook/form/arrangement energy design",
+      "stage_doc": "references/delegated/38_arrangement_energy_form_review.md"
+    },
+    {
+      "id": "lyrics_songcraft",
+      "label": "3 \u2014 Lyrics and songcraft",
+      "stage_doc": "references/delegated/03_write_song_lyrics.md"
+    },
+    {
+      "id": "prosody_topline",
+      "label": "3B \u2014 Prosody/scansion/topline",
+      "stage_doc": "references/delegated/33_prosody_scansion_topline_review.md"
+    },
+    {
+      "id": "line_polish",
+      "label": "3C \u2014 Line polish and professional lyric verifier",
+      "stage_doc": "references/delegated/55_line_polish_review.md"
+    },
+    {
+      "id": "preproduction_brief",
+      "label": "3C \u2014 Preproduction brief",
+      "stage_doc": "references/delegated/39_track_preproduction_brief.md"
+    },
+    {
+      "id": "adversarial_song_edit",
+      "label": "3D \u2014 Adversarial song/preproduction edit",
+      "stage_doc": "references/delegated/43_adversarial_song_prompt_edit.md"
+    },
+    {
+      "id": "packet_compilation",
+      "label": "5 \u2014 MiniMax packet compilation",
+      "stage_doc": "references/delegated/05_compile_minimax_packet.md"
+    },
+    {
+      "id": "prompt_budget",
+      "label": "5B \u2014 Prompt budget and compression",
+      "stage_doc": "references/delegated/34_prompt_budget_and_compression.md"
+    },
+    {
+      "id": "adversarial_packet_edit",
+      "label": "5C \u2014 Adversarial prompt/packet edit",
+      "stage_doc": "references/delegated/43_adversarial_song_prompt_edit.md"
+    },
+    {
+      "id": "packet_evaluation",
+      "label": "6 \u2014 Packet/style/parameter evaluation",
+      "stage_doc": "references/delegated/06_evaluate_minimax_packet.md"
+    },
+    {
+      "id": "unified_quality_decision",
+      "label": "6D \u2014 Unified quality evaluation and revision-cycle decision",
+      "stage_doc": "references/delegated/42_unified_quality_evaluation.md"
+    },
+    {
+      "id": "variant_strategy",
+      "label": "7 \u2014 Variant strategy",
+      "stage_doc": "references/delegated/07_generate_variants.md"
+    },
+    {
+      "id": "payload_export",
+      "label": "6B \u2014 Payload export and render logistics",
+      "stage_doc": "references/delegated/13_api_payload_export.md"
+    },
+    {
+      "id": "cover_workflow",
+      "label": "6C \u2014 Cover/re-render workflow",
+      "stage_doc": "references/delegated/12_cover_preprocess_and_rerender.md"
+    },
+    {
+      "id": "render_candidates",
+      "label": "8 \u2014 Render candidates",
+      "stage_doc": "references/delegated/14_render_logging_and_download.md"
+    },
+    {
+      "id": "post_render_review",
+      "label": "9 \u2014 Candidate review, listener panel, regeneration",
+      "stage_doc": "references/delegated/24_compare_render_candidates.md"
+    },
+    {
+      "id": "post_audio_rebuild",
+      "label": "10 \u2014 Post-audio rebuild and album assembly",
+      "stage_doc": "references/delegated/46_post_audio_planning_rebuild.md"
+    },
+    {
+      "id": "final_qc_release",
+      "label": "10B \u2014 Final audio QC and release package",
+      "stage_doc": "references/delegated/35_final_audio_mastering_and_transition_qc.md"
+    },
+    {
+      "id": "executive_producer_review",
+      "label": "10C \u2014 Executive producer review loop",
+      "stage_doc": "references/delegated/54_executive_producer_review_loop.md"
+    },
+    {
+      "id": "completion_fit",
+      "label": "11 \u2014 User-story fit and completion claim",
+      "stage_doc": "references/delegated/29_validate_user_story_fit.md"
+    },
+    {
+      "id": "complete",
+      "label": "Complete",
+      "stage_doc": null
+    }
+  ]
+}

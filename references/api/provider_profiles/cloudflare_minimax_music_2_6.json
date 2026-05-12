@@ -1,0 +1,43 @@
+{
+  "provider_id": "cloudflare_minimax_music_2_6",
+  "models": [
+    "minimax/music-2.6"
+  ],
+  "prompt": {
+    "required": true,
+    "language_preference": "English",
+    "max_chars": 2000,
+    "ideal_chars": [
+      650,
+      1400
+    ]
+  },
+  "lyrics": {
+    "required_for_vocal": true,
+    "max_chars": 3500
+  },
+  "bpm_key_control": {
+    "supported": true,
+    "reliability": "provider_route_dependent"
+  },
+  "album_quality_notes": [
+    "Treat BPM/key as soft guidance unless repeated renders show reliable adherence",
+    "Log provider route and settings with every render"
+  ],
+  "last_verified": "2026-05-11",
+  "notes": "Cloudflare wrapper requires prompt and exposes lyrics, sample_rate, bitrate, format, lyrics_optimizer, is_instrumental; output is an audio URL. Validate live schema before generation.",
+  "output": {
+    "audio_url": true,
+    "direct_output_format_control": false,
+    "notes": "Cloudflare route returns an audio URL through Workers AI response shape; direct MiniMax output_format/stream semantics do not apply unless Cloudflare exposes them."
+  },
+  "audio_setting": {
+    "sample_rates": "provider_enum",
+    "bitrates": "provider_enum",
+    "formats": [
+      "mp3",
+      "wav"
+    ],
+    "notes": "Use Cloudflare documented enum values from live schema; MP3/WAV are documented formats."
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "version": "24.0-production-test-ready",
+  "description": "Minimum artifact requirements for controller checks. These are structural checks, not substitutes for musical judgment; stage rubrics determine quality. All output goals route through completion_fit while non-applicable phases are skipped by applicability rules. v24 requires provider-ready payloads for MiniMax-ready outputs and supports strict completion preflight.",
+  "track_required_phase_ids": [
+    "planning_style_cards",
+    "hook_title_tournament",
+    "arrangement_energy_design",
+    "lyrics_songcraft",
+    "prosody_topline",
+    "line_polish",
+    "preproduction_brief",
+    "adversarial_song_edit",
+    "packet_compilation",
+    "prompt_budget",
+    "adversarial_packet_edit",
+    "packet_evaluation",
+    "unified_quality_decision",
+    "variant_strategy",
+    "payload_export",
+    "render_candidates",
+    "post_render_review"
+  ],
+  "requirements": {
+    "intake": {
+      "all": [
+        "intent_intake.json",
+        "project_config.json",
+        "state.json",
+        "project_manifest.json",
+        "seed.txt",
+        "results.tsv"
+      ]
+    },
+    "concept_option_search": {
+      "all": [
+        "planning/concept_tournament.json"
+      ]
+    },
+    "style_resolution": {
+      "all": [
+        "style_catalog_outputs/style_selection.json",
+        "style_catalog_outputs/album_style_map.md",
+        "style_catalog_outputs/style_catalog_verification.json"
+      ]
+    },
+    "style_voice_trials": {
+      "all": [
+        "style_catalog_outputs/style_voice_trials.json"
+      ]
+    },
+    "foundation": {
+      "all": [
+        "foundation/album_thesis.md",
+        "foundation/sound_signature.md",
+        "foundation/lyric_voice.md",
+        "foundation/vocal_identity.md",
+        "foundation/generation_constraints.md"
+      ]
+    },
+    "canon_setup": {
+      "all": [
+        "foundation/album_canon.json",
+        "foundation/album_canon.md",
+        "foundation/motif_ledger.md",
+        "foundation/vocabulary_ledger.md"
+      ]
+    },
+    "planning_style_cards": {
+      "all": [
+        "planning/tracklist.md",
+        "planning/album_arc.md",
+        "planning/album_energy_map.md",
+        "planning/transition_map.md",
+        "planning/hook_index.md"
+      ],
+      "track": [
+        "tracks/tr_{NN}/style_card.json",
+        "tracks/tr_{NN}/brief.md"
+      ]
+    },
+    "motif_plant_payoff": {
+      "all": [
+        "planning/motif_plant_payoff_ledger.json"
+      ]
+    },
+    "hook_title_tournament": {
+      "track": [
+        "tracks/tr_{NN}/hook_title_tournament.json"
+      ]
+    },
+    "arrangement_energy_design": {
+      "track": [
+        "tracks/tr_{NN}/arrangement_energy_review.json"
+      ]
+    },
+    "lyrics_songcraft": {
+      "track": [
+        "tracks/tr_{NN}/lyrics_working.md",
+        "tracks/tr_{NN}/songcraft_eval.json"
+      ]
+    },
+    "prosody_topline": {
+      "track": [
+        "tracks/tr_{NN}/prosody_review.json"
+      ]
+    },
+    "preproduction_brief": {
+      "track": [
+        "tracks/tr_{NN}/preproduction_brief.json"
+      ]
+    },
+    "adversarial_song_edit": {
+      "track": [
+        "tracks/tr_{NN}/adversarial_song_edit.json"
+      ]
+    },
+    "packet_compilation": {
+      "track": [
+        "tracks/tr_{NN}/lyrics_minimax.txt",
+        "tracks/tr_{NN}/prompt_minimax.txt",
+        "tracks/tr_{NN}/generation_packet.json"
+      ]
+    },
+    "prompt_budget": {
+      "track": [
+        "tracks/tr_{NN}/prompt_budget_report.json"
+      ]
+    },
+    "adversarial_packet_edit": {
+      "track": [
+        "tracks/tr_{NN}/adversarial_packet_edit.json"
+      ]
+    },
+    "packet_evaluation": {
+      "track": [
+        "tracks/tr_{NN}/minimax_eval.json",
+        "tracks/tr_{NN}/style_fidelity_report.json",
+        "tracks/tr_{NN}/parameter_audit.md",
+        "tracks/tr_{NN}/prompt_lint_report.json",
+        "tracks/tr_{NN}/prompt_packet_verifier_review.json"
+      ]
+    },
+    "unified_quality_decision": {
+      "track": [
+        "tracks/tr_{NN}/unified_eval.json"
+      ]
+    },
+    "variant_strategy": {
+      "track": [
+        "tracks/tr_{NN}/variants/A_on_brief.json",
+        "tracks/tr_{NN}/variants/B_hook_forward.json",
+        "tracks/tr_{NN}/variants/C_bold.json"
+      ]
+    },
+    "payload_export": {
+      "all": [
+        "generation/album_generation_manifest.json",
+        "generation/api_payloads.jsonl"
+      ],
+      "track": [
+        "generation/payloads/tr_{NN}_A_on_brief_take_01.json",
+        "generation/payloads/tr_{NN}_B_hook_forward_take_01.json",
+        "generation/payloads/tr_{NN}_C_bold_take_01.json"
+      ]
+    },
+    "cover_workflow": {
+      "all": [
+        "covers/cover_packet.json"
+      ]
+    },
+    "render_candidates": {
+      "all": [
+        "ops/render_log.jsonl",
+        "ops/download_manifest.json"
+      ],
+      "track": [
+        "tracks/tr_{NN}/renders/raw"
+      ]
+    },
+    "post_render_review": {
+      "track": [
+        "tracks/tr_{NN}/candidate_comparison.json",
+        "tracks/tr_{NN}/selected_candidate.json",
+        "tracks/tr_{NN}/post_generation_review.md"
+      ]
+    },
+    "post_audio_rebuild": {
+      "all": [
+        "planning/post_audio_tracklist.md",
+        "planning/post_audio_album_arc.md",
+        "planning/post_audio_energy_map.md",
+        "planning/post_audio_transition_map.md",
+        "planning/post_audio_rebuild.json",
+        "reviews/sequence_after_audio.md"
+      ]
+    },
+    "final_qc_release": {
+      "all": [
+        "reviews/final_audio_qc.json",
+        "release_package/metadata.json",
+        "release_package/final_tracklist.md",
+        "release_package/final_lyrics.md",
+        "release_package/provenance/render_log.final.jsonl"
+      ]
+    },
+    "executive_producer_review": {
+      "all": [
+        "reviews/final_aandr_review.md",
+        "reviews/executive_producer_review.json"
+      ]
+    },
+    "completion_fit": {
+      "all": [
+        "reviews/user_story_fit_report.md",
+        "reviews/full_skill_quality_check.md",
+        "reviews/completion_adversarial_audit.md",
+        "reviews/completion_verifier_review.json"
+      ]
+    },
+    "line_polish": {
+      "track": [
+        "tracks/tr_{NN}/line_polish_review.json",
+        "tracks/tr_{NN}/line_polish_patch.md",
+        "tracks/tr_{NN}/lyrics_verifier_review.json"
+      ]
+    }
+  },
+  "output_goal_stop_phase": {
+    "minimax_ready_packets": "completion_fit",
+    "generated_candidates": "completion_fit",
+    "selected_album_sequence": "completion_fit",
+    "release_package": "completion_fit",
+    "critique_or_regeneration_brief": "completion_fit"
+  }
+}

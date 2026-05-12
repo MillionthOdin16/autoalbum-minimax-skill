@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Final Audio QC",
+  "type": "object",
+  "required": [
+    "project_slug",
+    "release_goal",
+    "selected_audio_complete",
+    "render_provenance_complete",
+    "individual_track_qc",
+    "sequence_qc",
+    "technical_qc",
+    "release_ready",
+    "blocking_issues"
+  ],
+  "properties": {
+    "project_slug": {"type": "string"},
+    "release_goal": {"type": "string"},
+    "selected_audio_complete": {"type": "boolean"},
+    "render_provenance_complete": {"type": "boolean"},
+    "individual_track_qc": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["track_number", "selected_render_id", "qc_score", "pass"],
+        "properties": {
+          "track_number": {"type": "integer", "minimum": 1},
+          "selected_render_id": {"type": "string"},
+          "qc_score": {"type": "number", "minimum": 0, "maximum": 10},
+          "hook_impact": {"type": "number", "minimum": 0, "maximum": 10},
+          "vocal_quality": {"type": "number", "minimum": 0, "maximum": 10},
+          "mix_translation": {"type": "number", "minimum": 0, "maximum": 10},
+          "style_fidelity_after_audio": {"type": "number", "minimum": 0, "maximum": 10},
+          "pass": {"type": "boolean"},
+          "issues": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "sequence_qc": {
+      "type": "object",
+      "properties": {
+        "first_three_tracks_make_promise": {"type": "boolean"},
+        "middle_sag": {"type": "boolean"},
+        "closer_earned": {"type": "boolean"},
+        "transition_score": {"type": "number", "minimum": 0, "maximum": 10},
+        "sequence_score": {"type": "number", "minimum": 0, "maximum": 10}
+      },
+      "additionalProperties": true
+    },
+    "technical_qc": {
+      "type": "object",
+      "properties": {
+        "format_consistency": {"type": "boolean"},
+        "obvious_loudness_mismatch": {"type": "boolean"},
+        "distracting_artifacts": {"type": "boolean"},
+        "metadata_complete": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "blocking_issues": {"type": "array", "items": {"type": "string"}},
+    "accepted_risks": {"type": "array", "items": {"type": "string"}},
+    "release_ready": {"type": "boolean"}
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum MiniMax Cover Packet v1",
+  "type": "object",
+  "required": [
+    "cover_id",
+    "source_track",
+    "model",
+    "workflow",
+    "prompt",
+    "audio_setting",
+    "output_format",
+    "album_purpose",
+    "success_criteria",
+    "validation"
+  ],
+  "properties": {
+    "cover_id": {
+      "type": "string"
+    },
+    "source_track": {
+      "type": "string"
+    },
+    "model": {
+      "enum": [
+        "music-cover",
+        "music-cover-free"
+      ]
+    },
+    "workflow": {
+      "enum": [
+        "one_step_url",
+        "one_step_base64",
+        "two_step_feature_id"
+      ]
+    },
+    "audio_url": {
+      "type": "string"
+    },
+    "audio_base64": {
+      "type": "string"
+    },
+    "cover_feature_id": {
+      "type": "string"
+    },
+    "cover_feature_expires_at_utc": {
+      "type": "string"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 300
+    },
+    "lyrics": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 1000
+    },
+    "lyrics_policy": {
+      "enum": [
+        "asr_extract",
+        "unchanged",
+        "modified",
+        "new_short_lyric",
+        "instrumental_reference"
+      ]
+    },
+    "audio_setting": {
+      "type": "object",
+      "required": [
+        "sample_rate",
+        "bitrate",
+        "format"
+      ],
+      "properties": {
+        "sample_rate": {
+          "type": "integer"
+        },
+        "bitrate": {
+          "type": "integer"
+        },
+        "format": {
+          "type": "string"
+        }
+      }
+    },
+    "output_format": {
+      "enum": [
+        "url",
+        "hex"
+      ]
+    },
+    "album_purpose": {
+      "type": "string"
+    },
+    "success_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "workflow": {
+            "const": "one_step_url"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "audio_url"
+        ],
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "audio_base64"
+              ]
+            },
+            {
+              "required": [
+                "cover_feature_id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "workflow": {
+            "const": "one_step_base64"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "audio_base64"
+        ],
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "audio_url"
+              ]
+            },
+            {
+              "required": [
+                "cover_feature_id"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "workflow": {
+            "const": "two_step_feature_id"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "cover_feature_id",
+          "lyrics"
+        ],
+        "properties": {
+          "lyrics": {
+            "minLength": 10,
+            "maxLength": 1000
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "audio_url"
+              ]
+            },
+            {
+              "required": [
+                "audio_base64"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

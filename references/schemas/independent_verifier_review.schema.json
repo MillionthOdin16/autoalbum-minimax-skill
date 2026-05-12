@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IndependentVerifierReview",
+  "type": "object",
+  "required": [
+    "review_type",
+    "evaluated_artifact_path",
+    "evaluated_artifact_hash",
+    "decision",
+    "blocking_issues",
+    "evidence"
+  ],
+  "properties": {
+    "review_type": {
+      "enum": [
+        "lyrics",
+        "packet",
+        "completion",
+        "style",
+        "tournament"
+      ]
+    },
+    "track_number": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "evaluated_artifact_path": {
+      "type": "string"
+    },
+    "evaluated_artifact_hash": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_FIXES",
+        "FAIL"
+      ]
+    },
+    "score_cap": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quoted_lines_verified": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

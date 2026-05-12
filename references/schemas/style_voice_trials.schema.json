@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Style Voice Trials",
+  "type": "object",
+  "required": ["trial_set_id", "trials", "selected_trial", "exemplars", "anti_exemplars"],
+  "properties": {
+    "trial_set_id": {"type": "string"},
+    "trials": {"type": "array", "minItems": 5, "items": {"type": "object"}},
+    "selected_trial": {"type": "string"},
+    "exemplars": {"type": "array", "items": {"type": "string"}},
+    "anti_exemplars": {"type": "array", "items": {"type": "string"}},
+    "scores": {"type": "object"}
+  },
+  "additionalProperties": true
+}

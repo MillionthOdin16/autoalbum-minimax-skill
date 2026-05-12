@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Motif Plant Payoff Ledger",
+  "type": "object",
+  "required": ["ledger_id", "motifs"],
+  "properties": {
+    "ledger_id": {"type": "string"},
+    "motifs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["motif_id", "type", "plant_track", "purpose", "status"],
+        "properties": {
+          "motif_id": {"type": "string"},
+          "type": {"type": "string"},
+          "plant_track": {"type": "string"},
+          "payoff_tracks": {"type": "array", "items": {"type": "string"}},
+          "first_form": {"type": "string"},
+          "transformed_form": {"type": "string"},
+          "purpose": {"type": "string"},
+          "avoid": {"type": "string"},
+          "status": {"enum": ["planned", "planted", "paid_off", "orphaned", "overused", "cut"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

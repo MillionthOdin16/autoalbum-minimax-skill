@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Executive Producer Review",
+  "type": "object",
+  "required": ["cycle", "decision", "major_issues", "release_readiness_score"],
+  "properties": {
+    "cycle": {"type": "integer"},
+    "decision": {"enum": ["RELEASE_READY", "RELEASE_READY_WITH_NOTES", "REVISE_TRACKS", "RESEQUENCE", "REPLACE_WEAK_TRACK", "REGENERATE_SELECTED_RENDERS", "REOPEN_FOUNDATION", "NOT_RELEASE_READY"]},
+    "major_issues": {"type": "array", "items": {"type": "object"}},
+    "release_readiness_score": {"type": "number"},
+    "weakest_track": {"type": ["string", "null"]},
+    "best_track": {"type": ["string", "null"]},
+    "required_actions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

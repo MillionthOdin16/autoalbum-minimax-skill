@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Hook Title Tournament",
+  "type": "object",
+  "required": ["track_id", "candidates", "selected_hook", "decision"],
+  "properties": {
+    "track_id": {"type": "string"},
+    "candidates": {"type": "array", "minItems": 4, "items": {"type": "object"}},
+    "matches": {"type": "array", "items": {"type": "object"}},
+    "selected_hook": {"type": "string"},
+    "decision": {"enum": ["SELECT", "GENERATE_MORE", "REVISE_WINNER", "ESCALATE"]},
+    "hook_singability_score": {"type": "number"},
+    "memorability_score": {"type": "number"}
+  },
+  "additionalProperties": true
+}

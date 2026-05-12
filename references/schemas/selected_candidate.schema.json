@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Selected Candidate v10",
+  "type": "object",
+  "required": [
+    "track_number",
+    "selected_render_id",
+    "audio_path",
+    "source_packet_path",
+    "selection_reason"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer"
+    },
+    "selected_render_id": {
+      "type": "string"
+    },
+    "variant_id": {
+      "type": "string"
+    },
+    "take_number": {
+      "type": "integer"
+    },
+    "audio_path": {
+      "type": "string"
+    },
+    "source_packet_path": {
+      "type": "string"
+    },
+    "source_payload_path": {
+      "type": "string"
+    },
+    "render_log_id": {
+      "type": "string"
+    },
+    "selection_reason": {
+      "type": "string"
+    },
+    "known_compromises": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved_for_album_sequence": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

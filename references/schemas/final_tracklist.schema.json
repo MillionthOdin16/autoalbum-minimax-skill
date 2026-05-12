@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Final Tracklist v9",
+  "type": "object",
+  "required": [
+    "project_name",
+    "sequence"
+  ],
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "track_number",
+          "title",
+          "role"
+        ],
+        "properties": {
+          "track_number": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "energy": {
+            "type": "string"
+          },
+          "selected_render_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transition_in": {
+            "type": "string"
+          },
+          "transition_out": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "sequence_rationale": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

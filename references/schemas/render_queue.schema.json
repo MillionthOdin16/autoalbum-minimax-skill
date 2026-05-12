@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Render Queue Entry v11",
+  "type": "object",
+  "required": [
+    "render_id",
+    "track_number",
+    "variant_id",
+    "payload_path",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "render_id": {
+      "type": "string"
+    },
+    "track_number": {
+      "type": "integer"
+    },
+    "variant_id": {
+      "type": "string"
+    },
+    "take_number": {
+      "type": "integer"
+    },
+    "payload_path": {
+      "type": "string"
+    },
+    "packet_path": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "error_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "error_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audio_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checksum": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "next_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LinePolishReview",
+  "type": "object",
+  "required": [
+    "track_number",
+    "evaluated_artifact_path",
+    "evaluated_artifact_hash",
+    "weak_lines",
+    "professional_quality_score",
+    "blocking_issues",
+    "approved"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evaluated_artifact_path": {
+      "type": "string"
+    },
+    "evaluated_artifact_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "review_created_at": {
+      "type": "string"
+    },
+    "weak_lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "line",
+          "issue",
+          "replacement_or_action"
+        ],
+        "properties": {
+          "line": {
+            "type": "string"
+          },
+          "issue": {
+            "type": "string"
+          },
+          "replacement_or_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "professional_quality_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "quoted_lines_verified": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

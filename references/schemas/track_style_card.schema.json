@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Track Style Card",
+  "type": "object",
+  "required": [
+    "track_number",
+    "title",
+    "style_strictness",
+    "raw_user_style_request",
+    "reference_anchors",
+    "primary_style_profile",
+    "style_summary",
+    "shared_album_dna",
+    "track_style_delta",
+    "tempo_feel",
+    "groove",
+    "drums",
+    "bass_808",
+    "harmony_melody",
+    "instrument_palette",
+    "vocal_delivery",
+    "hook_mechanics",
+    "lyric_posture",
+    "arrangement_architecture",
+    "mix_space",
+    "hard_style_traits",
+    "soft_style_traits",
+    "avoid",
+    "adjacent_non_confusion",
+    "style_card_score"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string"
+    },
+    "style_strictness": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "raw_user_style_request": {
+      "type": "string"
+    },
+    "reference_anchors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_style_profile": {
+      "type": "string"
+    },
+    "secondary_style_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "song_reference_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_summary": {
+      "type": "string"
+    },
+    "shared_album_dna": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "track_style_delta": {
+      "type": "string"
+    },
+    "tempo_feel": {
+      "type": "string"
+    },
+    "groove": {
+      "type": "string"
+    },
+    "drums": {
+      "type": "string"
+    },
+    "bass_808": {
+      "type": "string"
+    },
+    "harmony_melody": {
+      "type": "string"
+    },
+    "instrument_palette": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vocal_delivery": {
+      "type": "string"
+    },
+    "adlib_behavior": {
+      "type": "string"
+    },
+    "hook_mechanics": {
+      "type": "string"
+    },
+    "lyric_posture": {
+      "type": "string"
+    },
+    "arrangement_architecture": {
+      "type": "string"
+    },
+    "mix_space": {
+      "type": "string"
+    },
+    "minimax_prompt_capsule": {
+      "type": "string"
+    },
+    "hard_style_traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "soft_style_traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "avoid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "adjacent_non_confusion": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "album_position_reason": {
+      "type": "string"
+    },
+    "quality_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_card_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10
+    }
+  },
+  "additionalProperties": false
+}

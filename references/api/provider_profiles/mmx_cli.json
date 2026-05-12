@@ -1,0 +1,38 @@
+{
+  "provider_id": "mmx_cli",
+  "models": [
+    "music-2.6",
+    "music-cover"
+  ],
+  "default_model": "music-2.6",
+  "prompt": {
+    "required": true,
+    "language_preference": "English",
+    "max_chars": 2000,
+    "ideal_chars": [
+      650,
+      1400
+    ]
+  },
+  "structured_controls": [
+    "genre",
+    "mood",
+    "vocals",
+    "instruments",
+    "bpm",
+    "key",
+    "tempo",
+    "structure",
+    "references",
+    "avoid",
+    "use_case"
+  ],
+  "export_requirement": "Generate both a direct style prompt and structured CLI arguments when this provider is selected.",
+  "album_quality_notes": [
+    "Prefer structured flags over cramming all control into prompt",
+    "Keep lyrics and prompt files versioned",
+    "Log exact command with all flags"
+  ],
+  "last_verified": "2026-05-11",
+  "notes": "Provider wrappers can diverge from direct MiniMax API; verify live schema before generation."
+}

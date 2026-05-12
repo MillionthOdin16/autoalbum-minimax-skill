@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AlbumCanon",
+  "type": "object",
+  "required": [
+    "project_id",
+    "canon_version",
+    "album_identity",
+    "sonic_rules",
+    "lyric_rules",
+    "style_commitments",
+    "motifs",
+    "prohibited_contradictions",
+    "open_debts"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "canon_version": {
+      "type": "string"
+    },
+    "album_identity": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "sonic_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rule",
+          "scope",
+          "evidence"
+        ],
+        "properties": {
+          "rule": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lyric_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rule",
+          "scope"
+        ],
+        "properties": {
+          "rule": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "style_commitments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "reference",
+          "translated_controls"
+        ],
+        "properties": {
+          "reference": {
+            "type": "string"
+          },
+          "translated_controls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "motifs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "motif",
+          "type",
+          "appearances",
+          "purpose"
+        ],
+        "properties": {
+          "motif": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "appearances": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "transformation_rule": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "track_facts": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "render_accepted_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "render_id": {
+            "type": "string"
+          },
+          "fact": {
+            "type": "string"
+          },
+          "affected_artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "prohibited_contradictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_debts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

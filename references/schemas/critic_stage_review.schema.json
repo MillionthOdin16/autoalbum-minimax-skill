@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Critical Stage Review v11",
+  "type": "object",
+  "required": [
+    "stage_id",
+    "stage_name",
+    "artifacts_inspected",
+    "decision",
+    "findings",
+    "required_fixes",
+    "state_update"
+  ],
+  "properties": {
+    "stage_id": {
+      "type": "string"
+    },
+    "stage_name": {
+      "type": "string"
+    },
+    "artifacts_inspected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_purpose": {
+      "type": "string"
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "severity",
+          "area",
+          "comment",
+          "fix"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "BLOCKER",
+              "MAJOR",
+              "MODERATE",
+              "MINOR",
+              "OBSERVE"
+            ]
+          },
+          "area": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "fix": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required_fixes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optional_improvements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_RECORDED_RISKS",
+        "REPAIR_BEFORE_ADVANCING",
+        "FAIL"
+      ]
+    },
+    "state_update": {
+      "type": "object",
+      "properties": {
+        "blocking_issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_actions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "critic_gate_status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

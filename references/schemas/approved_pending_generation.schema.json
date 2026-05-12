@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Approved Pending Generation v10",
+  "type": "object",
+  "required": [
+    "track_number",
+    "approved_packet_path",
+    "approved_variants",
+    "packet_scores",
+    "parameter_audit_pass",
+    "known_generation_risks"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer"
+    },
+    "approved_packet_path": {
+      "type": "string"
+    },
+    "approved_variants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "packet_scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    },
+    "parameter_audit_pass": {
+      "type": "boolean"
+    },
+    "reason_generation_pending": {
+      "type": "string"
+    },
+    "known_generation_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

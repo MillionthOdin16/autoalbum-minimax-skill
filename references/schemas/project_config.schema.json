@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Project Config v24",
+  "type": "object",
+  "required": [
+    "project_root",
+    "project_slug",
+    "project_name",
+    "project_scope",
+    "execution_mode",
+    "output_goal",
+    "album_type",
+    "track_count",
+    "target_model",
+    "target_provider",
+    "tag_profile",
+    "lyric_language",
+    "prompt_language",
+    "reference_policy",
+    "provider_profile_path"
+  ],
+  "properties": {
+    "project_scope": {
+      "enum": [
+        "single_track",
+        "lead_single",
+        "EP",
+        "mixtape",
+        "album",
+        "concept_album",
+        "beat_tape",
+        "instrumental_score",
+        "cover_or_rerender",
+        "revision_of_existing_work"
+      ]
+    },
+    "execution_mode": {
+      "enum": [
+        "autonomous_full_pipeline",
+        "collaborative_checkpoints",
+        "packet_only",
+        "render_review_only",
+        "release_package_only"
+      ]
+    },
+    "output_goal": {
+      "enum": [
+        "minimax_ready_packets",
+        "generated_candidates",
+        "selected_album_sequence",
+        "release_package",
+        "critique_or_regeneration_brief"
+      ]
+    },
+    "album_title_working": {
+      "type": "string"
+    },
+    "album_type": {
+      "type": "string"
+    },
+    "track_count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30
+    },
+    "target_model": {
+      "enum": [
+        "music-2.6",
+        "music-2.6-free",
+        "music-cover",
+        "music-cover-free",
+        "minimax/music-2.6",
+        "fal-ai/minimax-music/v2.6"
+      ]
+    },
+    "target_provider": {
+      "type": "string"
+    },
+    "tag_profile": {
+      "type": "string"
+    },
+    "lyric_language": {
+      "type": "string"
+    },
+    "prompt_language": {
+      "type": "string"
+    },
+    "audio_format_preview": {
+      "type": "string"
+    },
+    "audio_format_archive": {
+      "type": "string"
+    },
+    "sample_rate": {
+      "type": "integer"
+    },
+    "bitrate": {
+      "type": "integer"
+    },
+    "creative_risk": {
+      "type": "string"
+    },
+    "appeal_target": {
+      "type": "string"
+    },
+    "reference_policy": {
+      "type": "string"
+    },
+    "lyrics_optimizer_policy": {
+      "type": "string"
+    },
+    "checkpoint_policy": {
+      "type": "string"
+    },
+    "assumptions_to_document": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_story": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Human-readable project name, e.g. Midnight Paranoia."
+    },
+    "project_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Filesystem-safe top-level project folder name."
+    },
+    "project_root": {
+      "type": "string",
+      "description": "Canonical top-level folder path, usually equal to project_slug + /."
+    },
+    "artifact_path_standard": {
+      "type": "string",
+      "default": "references/architecture/artifact_path_standard.md"
+    },
+    "provider_profile_path": {
+      "type": "string",
+      "description": "Selected provider profile JSON path."
+    },
+    "quality_mode": {
+      "enum": [
+        "standard",
+        "high_rigor",
+        "release_grade",
+        "scratch",
+        "professional",
+        "style_strict"
+      ],
+      "default": "release_grade"
+    },
+    "require_prosody_gate": {
+      "type": "boolean",
+      "default": true
+    },
+    "require_prompt_budget_gate": {
+      "type": "boolean",
+      "default": true
+    },
+    "require_final_audio_qc_for_release": {
+      "type": "boolean",
+      "default": true
+    },
+    "target_quality_bar": {
+      "enum": [
+        "scratch_demo",
+        "solid_independent_release",
+        "professional_major_release"
+      ],
+      "default": "professional_major_release"
+    },
+    "agent_expertise_assumption": {
+      "type": "string",
+      "default": "non_expert_agent_requires_embedded_training"
+    },
+    "required_training_mode": {
+      "type": "string",
+      "enum": [
+        "standard",
+        "high_rigor",
+        "release_grade"
+      ],
+      "default": "standard"
+    }
+  },
+  "additionalProperties": true
+}

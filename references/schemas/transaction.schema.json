@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Transaction",
+  "type": "object",
+  "required": ["transaction_id", "scope", "reason", "risk_level", "decision"],
+  "properties": {
+    "transaction_id": {"type": "string"},
+    "scope": {"type": "string"},
+    "reason": {"type": "string"},
+    "files_to_snapshot": {"type": "array", "items": {"type": "string"}},
+    "quality_dimensions_targeted": {"type": "array", "items": {"type": "string"}},
+    "risk_level": {"enum": ["low", "medium", "high"]},
+    "rollback_allowed": {"type": "boolean"},
+    "decision": {"enum": ["KEEP", "DISCARD", "KEEP_WITH_DEBTS", "MANUAL_REVIEW", "PENDING"]}
+  },
+  "additionalProperties": true
+}

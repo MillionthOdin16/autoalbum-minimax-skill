@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Style Profile",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "type",
+    "fingerprint",
+    "minimax"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "genre",
+        "subgenre",
+        "artist",
+        "producer",
+        "song",
+        "era",
+        "scene",
+        "fusion"
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reference_anchors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fingerprint": {
+      "type": "object",
+      "properties": {
+        "tempo_bpm": {
+          "type": "string"
+        },
+        "meter": {
+          "type": "string"
+        },
+        "groove": {
+          "type": "string"
+        },
+        "drums": {
+          "type": "string"
+        },
+        "bass": {
+          "type": "string"
+        },
+        "harmony": {
+          "type": "string"
+        },
+        "melody_topline": {
+          "type": "string"
+        },
+        "vocal_delivery": {
+          "type": "string"
+        },
+        "lyrics": {
+          "type": "string"
+        },
+        "instrumentation": {
+          "type": "string"
+        },
+        "arrangement": {
+          "type": "string"
+        },
+        "mix_space": {
+          "type": "string"
+        },
+        "hook_mechanics": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "minimax": {
+      "type": "object",
+      "properties": {
+        "prompt_fragment": {
+          "type": "string"
+        },
+        "structure_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cli_fields": {
+          "type": "object"
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "album_use_cases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

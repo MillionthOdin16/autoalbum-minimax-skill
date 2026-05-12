@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KnowledgeDependencyCheck",
+  "type": "object",
+  "required": ["phase", "musical_decisions_required", "references_read", "likely_failure_modes", "pass_fail_criteria", "ready_to_proceed"],
+  "properties": {
+    "phase": {"type": "string"},
+    "musical_decisions_required": {"type": "array", "items": {"type": "string"}},
+    "references_read": {"type": "array", "items": {"type": "string"}},
+    "checklist": {"type": "array", "items": {"type": "string"}},
+    "likely_failure_modes": {"type": "array", "items": {"type": "string"}},
+    "pass_fail_criteria": {"type": "array", "items": {"type": "string"}},
+    "unknowns_or_assumptions": {"type": "array", "items": {"type": "string"}},
+    "ready_to_proceed": {"type": "boolean"},
+    "blocking_reason": {"type": "string"}
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Project Manifest v9",
+  "type": "object",
+  "required": [
+    "project_name",
+    "project_slug",
+    "project_root",
+    "created_at",
+    "current_state_path",
+    "artifacts"
+  ],
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "project_slug": {
+      "type": "string"
+    },
+    "project_root": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "current_state_path": {
+      "type": "string"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "path",
+          "category",
+          "status"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "track_number": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "variant_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "schema": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "release_package_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "album_canon_path": {
+      "type": "string"
+    },
+    "propagation_debt_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unified_eval_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revision_cycle_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

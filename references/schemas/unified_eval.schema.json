@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UnifiedEvaluation",
+  "type": "object",
+  "required": [
+    "scope",
+    "overall_score",
+    "decision",
+    "weakest_dimension",
+    "next_best_action",
+    "blocking_issues",
+    "scores"
+  ],
+  "properties": {
+    "scope": {
+      "enum": [
+        "foundation",
+        "track_pre_packet",
+        "track_packet_ready",
+        "track_post_render",
+        "album_pre_render",
+        "album_post_render",
+        "release_package"
+      ]
+    },
+    "track_number": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "overall_score": {
+      "type": "number"
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_DEBTS",
+        "REVISE",
+        "REGENERATE",
+        "CUT_OR_REPLACE",
+        "ESCALATE",
+        "FAIL"
+      ]
+    },
+    "weakest_dimension": {
+      "type": "string"
+    },
+    "next_best_action": {
+      "type": "string"
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_debts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pre_render_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "post_render_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

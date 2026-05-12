@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StyleCatalogVerification",
+  "type": "object",
+  "required": [
+    "selected_catalog_files_valid",
+    "style_weights_valid",
+    "blocking_issues",
+    "approved"
+  ],
+  "properties": {
+    "selected_catalog_files_valid": {
+      "type": "boolean"
+    },
+    "style_weights_valid": {
+      "type": "boolean"
+    },
+    "required_catalog_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_catalog_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

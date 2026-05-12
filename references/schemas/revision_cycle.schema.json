@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RevisionCycle",
+  "type": "object",
+  "required": [
+    "cycle_id",
+    "scope",
+    "weakest_dimension",
+    "attempt_history",
+    "decision",
+    "next_action"
+  ],
+  "properties": {
+    "cycle_id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "track_number": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "weakest_dimension": {
+      "type": "string"
+    },
+    "attempt_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "attempt_id": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "score_before": {
+            "type": "number"
+          },
+          "score_after": {
+            "type": "number"
+          },
+          "kept": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "plateau_detected": {
+      "type": "boolean"
+    },
+    "decision": {
+      "enum": [
+        "CONTINUE_CURRENT_LOOP",
+        "CHANGE_STRATEGY",
+        "CUT_OR_REPLACE",
+        "READY_TO_ADVANCE",
+        "ESCALATE"
+      ]
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

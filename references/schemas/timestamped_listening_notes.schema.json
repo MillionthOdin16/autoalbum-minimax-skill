@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Timestamped Listening Notes",
+  "type": "object",
+  "required": ["project_slug", "listening_context", "notes"],
+  "properties": {
+    "project_slug": {"type": "string"},
+    "listening_context": {"enum": ["single_track", "candidate_comparison", "adjacent_transition", "full_album", "final_qc"]},
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["track_number", "timestamp", "category", "note", "severity"],
+        "properties": {
+          "track_number": {"type": "integer", "minimum": 1},
+          "render_id": {"type": "string"},
+          "timestamp": {"type": "string", "description": "mm:ss or hh:mm:ss"},
+          "category": {"enum": ["hook", "vocal", "lyrics", "arrangement", "mix", "artifact", "transition", "sequence", "standout", "other"]},
+          "note": {"type": "string"},
+          "severity": {"enum": ["praise", "minor", "major", "blocker"]},
+          "recommended_action": {"type": "string"}
+        }
+      }
+    }
+  }
+}

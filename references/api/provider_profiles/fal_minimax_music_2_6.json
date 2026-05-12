@@ -1,0 +1,92 @@
+{
+  "provider_id": "fal_minimax_music_2_6",
+  "models": [
+    "fal-ai/minimax-music/v2.6"
+  ],
+  "prompt": {
+    "required": true,
+    "language_preference": "English",
+    "min_chars": 10,
+    "max_chars": 2000,
+    "ideal_chars": [
+      650,
+      1400
+    ],
+    "meaning": "Style, mood, genre, scenario, and production direction."
+  },
+  "lyrics": {
+    "required_for_vocal_when_optimizer_false": true,
+    "max_chars": 3500,
+    "default": "",
+    "supported_tags": [
+      "Intro",
+      "Verse",
+      "Pre Chorus",
+      "Chorus",
+      "Post Chorus",
+      "Hook",
+      "Bridge",
+      "Interlude",
+      "Transition",
+      "Build Up",
+      "Break",
+      "Inst",
+      "Solo",
+      "Outro"
+    ]
+  },
+  "instrumental": {
+    "supported": true,
+    "field": "is_instrumental",
+    "lyrics_required": false
+  },
+  "album_quality_notes": [
+    "Wrapper schemas can diverge from direct API",
+    "Store provider response and rendered asset URI immediately"
+  ],
+  "last_verified": "2026-05-11",
+  "notes": "FAL wrapper differs from direct MiniMax API: current public schema uses prompt + lyrics + lyrics_optimizer + is_instrumental + audio_setting, returns an audio file URL, and does not expose direct output_format/stream fields in the same way.",
+  "lyrics_optimizer": {
+    "supported": true,
+    "rule": "When true and lyrics is empty, provider auto-generates lyrics from the prompt."
+  },
+  "audio_setting": {
+    "sample_rates": [
+      16000,
+      24000,
+      32000,
+      44100
+    ],
+    "bitrates": [
+      32000,
+      64000,
+      128000,
+      256000
+    ],
+    "formats": [
+      "mp3",
+      "wav",
+      "pcm"
+    ],
+    "recommended_final": {
+      "sample_rate": 44100,
+      "bitrate": 256000,
+      "format": "wav"
+    },
+    "recommended_preview": {
+      "sample_rate": 44100,
+      "bitrate": 128000,
+      "format": "mp3"
+    }
+  },
+  "output": {
+    "audio_file_url": true,
+    "queue_request_id": true,
+    "download_immediately": true
+  },
+  "route_notes": [
+    "FAL uses a queue/subscribe API and returns an audio file object/URL, not the direct MiniMax hex/url output_format contract.",
+    "Do not pass direct-only output_format/stream fields unless the current FAL schema exposes them.",
+    "Verify live FAL schema before generation because wrapper schemas can change."
+  ]
+}

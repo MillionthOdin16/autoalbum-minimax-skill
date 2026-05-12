@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Regression Check",
+  "type": "object",
+  "required": ["check_id", "trigger", "critical_pass", "invariants"],
+  "properties": {
+    "check_id": {"type": "string"},
+    "trigger": {"type": "string"},
+    "critical_pass": {"type": "boolean"},
+    "invariants": {"type": "array", "items": {"type": "object"}},
+    "debts_created": {"type": "array", "items": {"type": "object"}},
+    "next_action": {"type": "string"}
+  },
+  "additionalProperties": true
+}

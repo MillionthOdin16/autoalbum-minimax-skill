@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Project State v22",
+  "type": "object",
+  "required": [
+    "project_id",
+    "project_name",
+    "project_slug",
+    "project_root",
+    "phase",
+    "output_goal",
+    "overall_status",
+    "tracks",
+    "album",
+    "blocking_issues",
+    "next_actions"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "project_slug": {
+      "type": "string"
+    },
+    "project_root": {
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "intake",
+        "concept_option_search",
+        "style_resolution",
+        "style_voice_trials",
+        "foundation",
+        "canon_setup",
+        "planning_style_cards",
+        "motif_plant_payoff",
+        "hook_title_tournament",
+        "arrangement_energy_design",
+        "lyrics_songcraft",
+        "prosody_topline",
+        "preproduction_brief",
+        "adversarial_song_edit",
+        "packet_compilation",
+        "prompt_budget",
+        "adversarial_packet_edit",
+        "packet_evaluation",
+        "unified_quality_decision",
+        "variant_strategy",
+        "payload_export",
+        "cover_workflow",
+        "render_candidates",
+        "post_render_review",
+        "post_audio_rebuild",
+        "final_qc_release",
+        "executive_producer_review",
+        "completion_fit",
+        "complete"
+      ]
+    },
+    "output_goal": {
+      "enum": [
+        "minimax_ready_packets",
+        "generated_candidates",
+        "selected_album_sequence",
+        "release_package",
+        "critique_or_regeneration_brief"
+      ]
+    },
+    "overall_status": {
+      "enum": [
+        "not_started",
+        "in_progress",
+        "blocked",
+        "ready_for_generation",
+        "ready_for_review",
+        "complete"
+      ]
+    },
+    "artifact_root": {
+      "type": "string"
+    },
+    "tracks_total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tracks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "paths": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "variants": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "renders": {
+            "type": "object",
+            "properties": {
+              "candidate_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "selected_render_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "review_status": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          },
+          "decision": {
+            "type": "string"
+          },
+          "blocking_issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "album": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "quality_gates": {
+      "type": "object",
+      "description": "Project-level gate status for v13 mandatory quality controls.",
+      "properties": {
+        "prosody_gate_complete": {
+          "type": "boolean"
+        },
+        "prompt_budget_gate_complete": {
+          "type": "boolean"
+        },
+        "provider_profiles_validated": {
+          "type": "boolean"
+        },
+        "final_audio_qc_complete": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "active_reference_index": {
+      "type": "string",
+      "default": "references/architecture/active_reference_index.md"
+    },
+    "knowledge_checks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "album_canon": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "integrity_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "last_updated": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "propagation_debts": {
+      "type": "array",
+      "items": {
+        "$ref": "propagation_debt.schema.json"
+      }
+    },
+    "unified_evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "overall_score": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "revision_cycles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cycle_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "controller": {
+      "type": "object",
+      "properties": {
+        "phase_order_path": {
+          "type": "string"
+        },
+        "gate_requirements_path": {
+          "type": "string"
+        },
+        "last_gate_check": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_validation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_snapshot": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phase_applicability_path": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

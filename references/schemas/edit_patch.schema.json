@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EditPatch",
+  "type": "object",
+  "required": [
+    "patch_id",
+    "track_number",
+    "source_findings",
+    "changed_artifacts",
+    "decision"
+  ],
+  "properties": {
+    "patch_id": {
+      "type": "string"
+    },
+    "track_number": {
+      "type": "integer"
+    },
+    "source_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changed_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "before_summary",
+          "after_summary"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "before_summary": {
+            "type": "string"
+          },
+          "after_summary": {
+            "type": "string"
+          },
+          "version_path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "decision": {
+      "enum": [
+        "KEEP_PATCH",
+        "REVISE_PATCH",
+        "DISCARD_PATCH",
+        "ESCALATE"
+      ]
+    },
+    "followup_evaluations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "new_debts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

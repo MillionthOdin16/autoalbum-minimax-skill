@@ -1,0 +1,44 @@
+{
+  "provider_id": "replicate_minimax_music_2_6",
+  "models": [
+    "minimax/music-2.6"
+  ],
+  "prompt": {
+    "required": true,
+    "language_preference": "English",
+    "max_chars": 2000,
+    "ideal_chars": [
+      650,
+      1400
+    ]
+  },
+  "lyrics": {
+    "required_for_vocal": true,
+    "max_chars": 3500
+  },
+  "instrumental": {
+    "supported": true
+  },
+  "seed_control": {
+    "supported": true,
+    "range": [
+      0,
+      1000000
+    ],
+    "notes": "If set, log seed for reproducibility."
+  },
+  "album_quality_notes": [
+    "Generate multiple candidates because results vary",
+    "Provider wrappers can differ from direct MiniMax API; audit schema before use"
+  ],
+  "last_verified": "2026-05-11",
+  "notes": "Replicate wrapper exposes route-specific conveniences such as seed and may include tags like [Drop]. Use route-specific tag profile and log seed when used.",
+  "audio_setting": {
+    "recommended_final": {
+      "sample_rate": 44100,
+      "bitrate": 256000,
+      "format": "wav"
+    },
+    "notes": "Replicate README recommends 44100/256000 and wav for production work."
+  }
+}

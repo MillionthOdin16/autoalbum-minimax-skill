@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum Candidate Comparison v10",
+  "type": "object",
+  "required": [
+    "track_number",
+    "candidates",
+    "ranking",
+    "decision"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "render_id",
+          "variant_id",
+          "audio_path",
+          "scores"
+        ],
+        "properties": {
+          "render_id": {
+            "type": "string"
+          },
+          "variant_id": {
+            "type": "string"
+          },
+          "audio_path": {
+            "type": "string"
+          },
+          "scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "weaknesses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "decision": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "ranking": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_render_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "select",
+        "regenerate",
+        "revise_prompt",
+        "revise_lyrics",
+        "cut_track",
+        "defer"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,534 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutoAlbum MiniMax Generation Packet v23",
+  "type": "object",
+  "required": [
+    "track_number",
+    "title",
+    "model",
+    "provider",
+    "tag_profile",
+    "mode",
+    "prompt",
+    "lyrics_optimizer",
+    "is_instrumental",
+    "audio_setting",
+    "hard_constraints",
+    "soft_guidance",
+    "avoid",
+    "album_continuity",
+    "validation",
+    "provider_profile_path",
+    "style_card_path",
+    "prompt_budget_report_path"
+  ],
+  "properties": {
+    "track_number": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string"
+    },
+    "album_function": {
+      "type": "string"
+    },
+    "model": {
+      "enum": [
+        "music-2.6",
+        "music-2.6-free",
+        "music-cover",
+        "music-cover-free",
+        "minimax/music-2.6",
+        "fal-ai/minimax-music/v2.6"
+      ]
+    },
+    "provider": {
+      "enum": [
+        "direct_minimax_api",
+        "mmx_cli",
+        "replicate",
+        "fal",
+        "cloudflare_workers_ai",
+        "aimlapi",
+        "custom",
+        "replicate_minimax_music_2_6",
+        "fal_minimax_music_2_6",
+        "cloudflare_minimax_music_2_6"
+      ],
+      "description": "Prefer the exact provider_id from references/api/provider_profiles/*.json. Legacy aliases are accepted only for compatibility."
+    },
+    "tag_profile": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "vocal",
+        "instrumental",
+        "optimizer_baseline"
+      ]
+    },
+    "prompt": {
+      "type": "string",
+      "maxLength": 2000,
+      "minLength": 1
+    },
+    "lyrics": {
+      "type": "string",
+      "maxLength": 3500,
+      "default": ""
+    },
+    "lyrics_optimizer": {
+      "type": "boolean"
+    },
+    "is_instrumental": {
+      "type": "boolean"
+    },
+    "stream": {
+      "type": "boolean",
+      "default": false,
+      "description": "Direct MiniMax API streaming flag. Optional/ignored for provider wrappers that do not expose direct stream semantics."
+    },
+    "output_format": {
+      "enum": [
+        "url",
+        "hex"
+      ],
+      "description": "Direct MiniMax API output format. Required for direct_minimax_api; provider wrappers may return URLs through their own response shape instead."
+    },
+    "audio_profile": {
+      "enum": [
+        "preview_fast",
+        "candidate_review",
+        "final_archive",
+        "custom"
+      ]
+    },
+    "audio_setting": {
+      "type": "object",
+      "required": [
+        "sample_rate",
+        "bitrate",
+        "format"
+      ],
+      "properties": {
+        "sample_rate": {
+          "type": "integer",
+          "enum": [
+            16000,
+            24000,
+            32000,
+            44100
+          ]
+        },
+        "bitrate": {
+          "type": "integer",
+          "enum": [
+            32000,
+            64000,
+            128000,
+            256000
+          ]
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "mp3",
+            "wav",
+            "pcm"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "download_policy": {
+      "type": "object",
+      "properties": {
+        "download_immediately": {
+          "type": "boolean"
+        },
+        "url_expiration_hours": {
+          "type": "integer"
+        },
+        "archive_raw_response": {
+          "type": "boolean"
+        },
+        "archive_audio": {
+          "type": "boolean"
+        }
+      }
+    },
+    "mmx_cli_args": {
+      "type": "object"
+    },
+    "hard_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "soft_guidance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "avoid": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "album_continuity": {
+      "type": "object",
+      "required": [
+        "shared_dna",
+        "track_distinction"
+      ],
+      "properties": {
+        "shared_dna": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "track_distinction": {
+          "type": "string"
+        },
+        "motifs_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transition_in": {
+          "type": "string"
+        },
+        "transition_out": {
+          "type": "string"
+        }
+      }
+    },
+    "music_theory_plan": {
+      "type": "object"
+    },
+    "api_payload_preview": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object",
+      "required": [
+        "prompt_char_count",
+        "lyrics_char_count",
+        "supported_tags_only",
+        "instrumental_lyrics_rule_ok",
+        "stream_output_format_rule_ok",
+        "provider_parameters_supported"
+      ],
+      "properties": {
+        "prompt_char_count": {
+          "type": "integer"
+        },
+        "lyrics_char_count": {
+          "type": "integer"
+        },
+        "supported_tags_only": {
+          "type": "boolean"
+        },
+        "unsupported_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "instrumental_lyrics_rule_ok": {
+          "type": "boolean"
+        },
+        "stream_output_format_rule_ok": {
+          "type": "boolean"
+        },
+        "provider_parameters_supported": {
+          "type": "boolean"
+        },
+        "unsupported_requested_parameters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style_request_preserved": {
+          "type": "boolean"
+        },
+        "reference_anchors_present": {
+          "type": "boolean"
+        },
+        "genre_mechanics_score": {
+          "type": "number"
+        },
+        "artist_fingerprint_score": {
+          "type": "number"
+        },
+        "style_fidelity_ready": {
+          "type": "boolean"
+        },
+        "provider_profile_id_matches_provider": {
+          "type": "boolean"
+        }
+      }
+    },
+    "style_selection": {
+      "type": "object",
+      "properties": {
+        "raw_style_request": {
+          "type": "string"
+        },
+        "style_strictness": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "primary_style_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondary_style_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference_anchors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "style_weights": {
+          "type": "object"
+        },
+        "fingerprint_priority": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "style_card": {
+      "type": "object",
+      "properties": {
+        "genre_lane": {
+          "type": "string"
+        },
+        "tempo_range_bpm": {
+          "type": "string"
+        },
+        "meter": {
+          "type": "string"
+        },
+        "groove": {
+          "type": "string"
+        },
+        "drums": {
+          "type": "string"
+        },
+        "bass": {
+          "type": "string"
+        },
+        "harmony": {
+          "type": "string"
+        },
+        "instrumentation": {
+          "type": "string"
+        },
+        "vocal_delivery": {
+          "type": "string"
+        },
+        "adlib_behavior": {
+          "type": "string"
+        },
+        "lyric_posture": {
+          "type": "string"
+        },
+        "hook_mechanics": {
+          "type": "string"
+        },
+        "arrangement_arc": {
+          "type": "string"
+        },
+        "mix_space": {
+          "type": "string"
+        },
+        "album_dna_traits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "track_delta_traits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "style_fidelity_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reference_anchors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_strictness": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "provider_profile_path": {
+      "type": "string",
+      "description": "Path to selected provider profile JSON under references/api/provider_profiles/"
+    },
+    "prosody_review_path": {
+      "type": "string"
+    },
+    "prompt_budget_report_path": {
+      "type": "string"
+    },
+    "style_card_path": {
+      "type": "string"
+    },
+    "control_reliability": {
+      "type": "object",
+      "description": "Map of requested musical controls to reliability class for selected provider.",
+      "additionalProperties": {
+        "enum": [
+          "hard",
+          "soft",
+          "low_reliability",
+          "not_supported"
+        ]
+      }
+    },
+    "hook_lab_path": {
+      "type": "string"
+    },
+    "arrangement_energy_review_path": {
+      "type": "string"
+    },
+    "preproduction_brief_path": {
+      "type": "string"
+    },
+    "agent_training_references_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "variant_id": {
+      "type": "string",
+      "description": "Variant ID such as A_on_brief, B_hook_forward, or C_bold. Base packets may omit."
+    },
+    "evaluated_artifact_hash": {
+      "type": "string"
+    },
+    "line_polish_review_path": {
+      "type": "string"
+    },
+    "prompt_lint_report_path": {
+      "type": "string"
+    },
+    "independent_verifier_review_path": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "is_instrumental": {
+            "const": false
+          },
+          "lyrics_optimizer": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "lyrics"
+        ],
+        "properties": {
+          "lyrics": {
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "stream": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "output_format": {
+            "const": "hex"
+          }
+        }
+      }
+    },
+    {
+      "not": {
+        "properties": {
+          "lyrics_optimizer": {
+            "const": true
+          },
+          "is_instrumental": {
+            "const": true
+          }
+        },
+        "required": [
+          "lyrics_optimizer",
+          "is_instrumental"
+        ]
+      },
+      "description": "lyrics_optimizer and is_instrumental are contradictory and must not both be true."
+    },
+    {
+      "if": {
+        "properties": {
+          "provider": {
+            "const": "direct_minimax_api"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "stream",
+          "output_format"
+        ]
+      },
+      "description": "Direct MiniMax API packets must explicitly set stream and output_format."
+    }
+  ],
+  "additionalProperties": true
+}
